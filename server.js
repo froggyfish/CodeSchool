@@ -2,10 +2,14 @@
 const { application } = require("express");
 const express = require("express");
 const { Model } = require("mongoose");
+const cors = require("cors")
 
 const saveM = require("./saveManager");
 const app = express();
 const {store,Todo} = require("./model");
+
+app.use(cors())
+
 
 //function () and ()=> are similar there are differences
 //server start
