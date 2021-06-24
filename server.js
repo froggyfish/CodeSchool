@@ -10,6 +10,8 @@ const {store,Todo} = require("./model");
 //function () and ()=> are similar there are differences
 //server start
 
+//comment
+
 propertyList = {name:0,id:0,due:0,description:"",done:false};
 
 app.use(express.json({}));
