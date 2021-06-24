@@ -10,6 +10,8 @@ const {store,Todo} = require("./model");
 
 app.use(cors())
 
+app.use(express.static("static"))
+
 
 //function () and ()=> are similar there are differences
 //server start
