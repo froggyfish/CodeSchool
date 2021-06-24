@@ -1,0 +1,62 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+li{
+    display: flex;
+    
+}
+.liElement{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+#app{
+    display: flex;
+}
+.userInput{
+    width: 100%;
+}
+.input_area{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.input_area button{
+    margin-top: 10px;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+#wrapper{
+    width: 100%;
+}
+.leftSide{
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+.list{
+    display: flex;
+    margin: 0;
+}
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+}
+h2{
+    width: 100%;
+    margin: 0 auto;
+}
+.listElement{
+    margin:0;
+}
+.checkbox{
+    margin: auto;
+}

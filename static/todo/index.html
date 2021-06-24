@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Todo App</h1>
+        <div id="app">
+            <div class="leftSide">
+                <div class="input_area">
+                    <h2>Create Todo</h2>
+                    <label>Name</label>
+                    <input type="text" v-model="new_todo_name" placeholder="Enter a new todo name" class="userInput">
+                    <label>Description</label>
+                    <input type="text" v-model="new_todo_description" placeholder="Description" class="userInput">
+                    <label>Deadline</label>
+                    <input type="date" v-model="new_todo_deadline" placeholder="Deadline" class="userInput">
+                    <button v-on:click="addNewTodo()">Add</button>
+                </div>
+            </div>
+            <div class="rightSide">
+                <h2>Your Todo List</h2>
+
+                <ul class="list">
+                    <li v-for="(todo,index) in todos" class="listElement">
+                        <input type="checkbox" v-model="todo.done" class="liElement checkbox">
+
+
+                        <div v-if="todo.editing" class="liElement">
+                            <input type="text" v-model="todo.name" class=>
+                            <br>    
+                            <input type="text" v-model="todo.description">
+                            <br>    
+                            <input type="date" v-model="todo.deadline">
+                            <br>
+                            <button v-on:click="saveTodo(todo)">Save</button>
+
+                        </div>
+                        <div v-else class="liElement">
+                            <div>{{ todo.name }}</div>
+                            <div>{{ todo.description}}</div>
+                            <div>{{ todo.deadline}}</div>
+                            <div>
+                                <button v-on:click="editTodo(todo)">Edit</button>
+                                <button v-on:click="deleteTodo(index)">Delete</button>
+                            </div>
+
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
