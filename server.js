@@ -200,8 +200,6 @@ function updateFiles(){
             })
         })
     }).then(saveM.getFile(function(data){
-        console.log(data[0])
-        console.log("")
         for(var i = 0; i < data.length; i++){
             Todo.create({
                 name: data[i].name,
@@ -213,7 +211,6 @@ function updateFiles(){
                     console.log(`unable to create todo`)
                 }
             });
-            console.log("this should be second");
         }
 
 
