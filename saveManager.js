@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { callbackify } = require("util");
 
 function saveFile(todoList){
 
@@ -11,17 +10,17 @@ function saveFile(todoList){
     })
 }
 
-function getFile(callback){
+function getFile(newFunc){
     
 
     fs.readFile("./savedTodoList.json", "utf-8", (err, data) =>{
         if(err){
             throw err;
         };
-        callback(JSON.parse(data))
-        //callback(data);
-
-    })    
+        newFunc(JSON.parse(data));
+    })
+    return "wowza"
+    
 }
 
 module.exports = {

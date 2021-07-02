@@ -18,7 +18,7 @@ app.use(express.static("static"))
 
 //comment
 
-propertyList = {name:0,id:0,due:0,description:"",done:false};
+propertyList = {name:0,id:0,due:0,description:null  ,done:null};
 
 app.use(express.json({}));
 
@@ -227,7 +227,7 @@ function intervalFunc(){
     console.log("happening")
     updateFiles();
 }
-setInterval(updateFiles, 1500);
+//setInterval(updateFiles, 1500);
 module.exports = app;
 
 /**        forEach(function (todoItem) {
