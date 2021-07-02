@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <v-app>
+            <v-main>
+                <v-container>
+                    <v-flex xs6 lg3></v-flex>
+                    <v-flex xs6 text-xs-center lg9>
+                        <div class="blue--text text-lighten-3 text-uppercase display-2 ma-4">Todos</div>
+                         
+                        <!--inputs-->
+                        <v-text-field label="what needs to be done" outline color="blue darken-3" clearable autofocus v-model="new_todo_name" @keyup.enter="addNewTodo()">
+                            
+                        </v-text-field>
+
+                        <v-card>
+                            <v-list>
+                                <v-list-item v-for="(todo, index) in todos">
+                                    <v-list-item-action>
+                                        <v-checkbox v-model="todo.done" color="blue lighten-3"></v-checkbox>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-flex>
+                                            <v-list-item-title 
+                                                v-if="!todo.editing" 
+                                                @dblclick="todo.editing = true">
+                                                {{todo.name}}
+                                            </v-list-item-title>
+                                            <v-text-field v-else autofocus color="blue lighten-2" v-model="todo.name" @keyup.enter="todo.editing = false">
+                                                
+                                            </v-text-field>
+                                            <v-list-item-action>
+                                                <v-btn>
+                                                    <v-icon @click="deleteTodo(todo)" color="grey">mdi-delete</v-icon>
+                                                </v-btn>
+                                            </v-list-item-action>
+                                        </v-flex>
+                                        
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </v-list>
+                        </v-card>
+                        <v-footer class="ma-4 pa-4">
+                            <v-layout column>
+                                <div class="blue--text text--lighten-3">Doublie clock to edit Todo</div>
+                            </v-layout>
+                        </v-footer>
+
+
+                    </v-flex>
+                </v-container>
+                
+            </v-main>
+        </v-app>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
